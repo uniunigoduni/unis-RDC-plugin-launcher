@@ -125,3 +125,13 @@ K:\nodejs\npm.cmd ci
 - エラーログ形式が変わったか
 
 このリポジトリは「永続的な upstream 仕様書」ではなく、その時点で動作確認したランチャーとbeta知識の履歴です。
+
+## インストールBAT
+
+依存関係の復元は、通常 `Install-Remote-Desktop-Commander.bat` を使用します。
+
+このBATは `package-lock.json` を正本として `npm ci` を実行し、その後にwatchdog構文とDesktop Commanderのインストール状態を確認します。
+
+インストールBATを変更するときも、依存バージョンを暗黙に更新する処理は追加しないでください。beta版の再現性を優先し、更新は `package.json` / `package-lock.json` の明示的な変更として扱います。
+
+Remote Desktop Commanderが稼働中の場合、`npm ci` は使用中の `node_modules` を作り直すため、接続中セッションを維持したい作業中には実行しないでください。

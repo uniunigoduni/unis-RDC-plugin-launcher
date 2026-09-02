@@ -13,10 +13,19 @@ Remote Desktop Commander を Windows で起動し、既知の接続切れを自�
 
 `0.2.48` は調査時点の beta 系実装です。既知問題の詳細は `AGENTS.md` を参照してください。
 
-## セットアップ
+## インストール
 
-依存パッケージは Git 管理しません。初回または `node_modules` を削除した場合は、このフォルダで次を実行します。
+初回セットアップ、または `node_modules` を作り直す場合は、
+`Install-Remote-Desktop-Commander.bat` をダブルクリックします。
 
+このBATは次を自動実行します。
+
+1. Node.js / npm / package files の存在確認
+2. `npm ci` による lockfile 固定の依存関係復元
+3. watchdog の構文確認
+4. Desktop Commander のインストール確認とバージョン表示
+
+手動で復元する場合は、このフォルダで次を実行します。
 ```cmd
 K:\nodejs\npm.cmd ci
 ```
@@ -25,10 +34,7 @@ K:\nodejs\npm.cmd ci
 
 `Remote-Desktop-Commander.bat` をダブルクリックします。
 
-watchdog はローカルに固定インストールされた Desktop Commander を起動し、以下の場合に約3秒後に再起動します。
-
-- 実ツール呼び出しが `Not connected` で失敗した場合
-- Remote Desktop Commander プロセスが予期せず終了した場合
+watchdog はローカルに固定インストールされた Desktop Commander を起動し、内部MCP接続の切断を示す実ツール失敗ログ、または子プロセスの予期しない終了を検出した場合に約3秒後に再起動します。
 
 ランチャーのウィンドウを閉じると停止します。
 
@@ -46,13 +52,7 @@ K:\nodejs\npm.cmd run check
 
 ## Git 管理
 
-次はコミットしません。
-
-- `node_modules`
-- npm / npx のキャッシュ
-- ログや一時ファイル
-- `.env` などの秘密情報
-- Desktop Commander の device credentials
+`node_modules`、npm/npxキャッシュ、ログ、一時ファイル、秘密情報、Desktop Commanderのdevice credentialsはコミットしません。
 
 一方、`package.json` と `package-lock.json` は、調査済みのbeta環境を再現するためコミットします。
 
