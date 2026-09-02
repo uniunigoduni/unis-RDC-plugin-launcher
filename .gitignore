@@ -1,0 +1,24 @@
+# Installed dependencies / local npm artifacts
+node_modules/
+.npm/
+.npx/
+
+# Logs and temporary files
+*.log
+logs/
+tmp/
+temp/
+
+# Local secrets / device credentials
+.env
+.env.*
+!.env.example
+.desktop-commander-device/
+**/.desktop-commander-device/
+**/device.json
+
+# Editor / OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

@@ -1,0 +1,15 @@
+{
+  "name": "unis-rdc-plugin-launcher",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Windows launcher and auto-recovery wrapper for Remote Desktop Commander beta",
+  "scripts": {
+    "start": "node remote-watch.js",
+    "check": "node --check remote-watch.js",
+    "rdc:version": "node -e \"console.log(require('./node_modules/@wonderwhy-er/desktop-commander/package.json').version)\""
+  },
+  "dependencies": {
+    "@wonderwhy-er/desktop-commander": "0.2.48"
+  },
+  "packageManager": "npm@10.9.8"
+}
