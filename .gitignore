@@ -5,9 +5,17 @@ node_modules/
 
 # Logs and temporary files
 *.log
+*.tmp
+*.temp
 logs/
 tmp/
 temp/
+
+# Local backup files
+*.bak
+*.bak-*
+*.backup
+*.orig
 
 # Local secrets / device credentials
 .env
